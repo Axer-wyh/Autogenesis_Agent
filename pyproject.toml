@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autogenesis-agent"
+version = "0.1.0"
+description = "Controlled self-evolving agent runtime based on RSPL and SEPL boundaries."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+api = ["fastapi>=0.115"]
+test = ["pytest>=8.0", "fastapi>=0.115", "httpx2>=0.28"]
+
+[project.scripts]
+autogenesis-agent = "autogenesis_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
